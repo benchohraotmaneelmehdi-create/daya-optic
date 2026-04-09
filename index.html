@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Interface Opticien - Caisse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">Produits</a></li>
+      <li><a href="#">Clients</a></li>
+      <li><a href="#">Caisse</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Module de Caisse</h1>
+    <form id="caisse-form">
+      <label>Nom du produit:
+        <input type="text" id="produit" required>
+      </label>
+      <label>Prix unitaire (€): 
+        <input type="number" id="prix" required step="0.01">
+      </label>
+      <label>Quantité:
+        <input type="number" id="quantite" required min="1" value="1">
+      </label>
+      <button type="button" onclick="ajouterProduit()">Ajouter</button>
+    </form>
+    <table id="panier">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Prix unitaire</th>
+          <th>Quantité</th>
+          <th>Sous-total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="total-div">
+      <label>Remise (€) : <input type="number" id="remise" value="0" step="0.01" oninput="calculerTotal()"></label>
+      <p>Total à payer : <span id="total">0.00</span> €</p>
+      <button onclick="encaisser()">Encaisser</button>
+    </div>
+  </main>
+  <script src="caisse.js"></script>
+</body>
+</html>
